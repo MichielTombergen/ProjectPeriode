@@ -3,15 +3,12 @@ package view;
 
 import javax.swing.*;
 import model.*;
-
-
 import java.awt.*;
 
 public class SimulatorView extends JFrame {
-    /**
-	 * 
-	 */
+ 
 	private static final long serialVersionUID = 1L;
+	
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -59,12 +56,8 @@ public class SimulatorView extends JFrame {
                 button5.addActionListener(e -> stop());
                 buttons.add(button5);
 
-        JPanel Pane1 = new JPanel();
-        Pane1 .setLayout(new GridLayout(1,0));
-        	
-       
-        
-        
+                JPanel Pane1 = new JPanel();
+                Pane1 .setLayout(new GridLayout(1,0));
         
         Container contentPane = getContentPane();
         contentPane.add(carParkView, BorderLayout.CENTER);
