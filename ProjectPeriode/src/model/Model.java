@@ -8,8 +8,6 @@ import view.SimulatorView;
 
 
 public class Model implements Runnable {
-	
-	private boolean run;
 
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
@@ -54,25 +52,21 @@ public class Model implements Runnable {
 	}
 	
 	public void stop() {
-		run=false;
+		
 	}
 	
 	public void step() {
-		run=false;
+		
 	}
 	
 	public void hstep() {
-		run=false;
+		
 	}
 
     public void run() {
-    	run=true;
         for (int i = 0; i < 10000; i++) {
             tick();
-        } try {
-			Thread.sleep(10);
-			} catch (Exception e) {} 
-		
+        }
     }
 
     private void tick() {
