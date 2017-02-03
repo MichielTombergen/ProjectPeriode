@@ -4,11 +4,13 @@ package view;
 import javax.swing.*;
 import model.*;
 import java.awt.*;
+import controller.*;
 
 public class SimulatorView extends JFrame {
  
 	private static final long serialVersionUID = 1L;
 	
+	private Controller controller;
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -37,7 +39,7 @@ public class SimulatorView extends JFrame {
 
             	button1 = new JButton("+1 Step");
                 button1.setPreferredSize(new Dimension(100, 100));
-                //button1.addActionListener(e -> model.stop());
+                //button1.addActionListener(e -> stop());
                 buttons.add(button1);
                 button2 = new JButton("Start");
                 button2.setPreferredSize(new Dimension(100, 100));

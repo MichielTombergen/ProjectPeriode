@@ -13,7 +13,7 @@ public class Model implements Runnable {
 	private static final String PASS = "2";
 	private static final String ABO = "3";
 	
-	
+	private boolean run=true;
 	private CarQueue entranceCarQueue;
     private CarQueue entrancePassQueue;
     private CarQueue entranceAboQueue;
@@ -52,7 +52,7 @@ public class Model implements Runnable {
 	}
 	
 	public void stop() {
-		
+		run=false;
 	}
 	
 	public void step() {
@@ -64,9 +64,11 @@ public class Model implements Runnable {
 	}
 
     public void run() {
+	while(run=true){
         for (int i = 0; i < 10000; i++) {
             tick();
         }
+    }
     }
 
     private void tick() {
