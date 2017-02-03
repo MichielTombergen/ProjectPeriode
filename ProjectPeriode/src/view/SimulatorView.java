@@ -91,7 +91,9 @@ public class SimulatorView extends JFrame {
         numberOfOpenSpots++;
         return car;
     }
-
+/*
+ * De eerste vrije locatie word opgezocht. Maar door de if statement kunnen ze niet op floor 0 in rijen 1-3 parkeren en zullen zij die overslaan.
+ */
     public Location getFirstFreeLocation() {
         
     	for (int floor = 0; floor < getNumberOfFloors(); floor++) {
@@ -112,6 +114,10 @@ public class SimulatorView extends JFrame {
         return null;
     }
     
+    /*
+     * De eerste vrije locatie word opgeroepen. Het begint bij de eerste plaats op floor 0. Wanneer er niet genoeg plekken voor abbonomentenhouders
+     * gereserveerd zijn. Dan zullen abonomentenhouders zich voegen tussen de gewone bezoekers.
+     */
     public Location getFirstAboFreeLocation() {
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             	for (int row = 0; row < getNumberOfRows(); row++) {
