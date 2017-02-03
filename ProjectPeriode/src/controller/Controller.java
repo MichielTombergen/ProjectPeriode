@@ -10,10 +10,10 @@ import java.awt.event.*;
  * @author MichielTombergen
  * @version 02-02-2017
  */
-public class Controller implements ActionListener {
+public class Controller extends AbstractController implements ActionListener {
 	
 	public Controller(Model model) {
-		super();
+		super(model);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -24,6 +24,14 @@ public class Controller implements ActionListener {
 		
 		if (e.getActionCommand().equals("Stop")) {
 			model.stop();
+		}
+		
+		if (e.getActionCommand().equals("+1 Step")) {
+			model.step();
+		}
+		
+		if (e.getActionCommand().equals("+100 Steps")) {
+			model.hstep();
 		}
 		
 	}

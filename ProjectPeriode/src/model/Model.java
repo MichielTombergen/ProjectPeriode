@@ -56,6 +56,14 @@ public class Model implements Runnable {
 	public void stop() {
 		run=false;
 	}
+	
+	public void step() {
+		run=false;
+	}
+	
+	public void hstep() {
+		run=false;
+	}
 
     public void run() {
     	run=true;
