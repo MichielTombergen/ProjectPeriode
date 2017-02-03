@@ -2,7 +2,7 @@ package model;
 
 
 import java.util.Random;
-
+import run.*;
 import view.SimulatorView;
 
 
@@ -13,7 +13,8 @@ public class Model implements Runnable {
 	private static final String PASS = "2";
 	private static final String ABO = "3";
 	
-	private boolean run=true;
+	public boolean run=true;
+	
 	private CarQueue entranceCarQueue;
     private CarQueue entrancePassQueue;
     private CarQueue entranceAboQueue;
@@ -47,31 +48,16 @@ public class Model implements Runnable {
         simulatorView = new SimulatorView(3, 6, 30);
     }
     
-	public void start() {
-		new Thread(this).start();
-	}
-	
-	public void stop() {
-		run=false;
-	}
-	
-	public void step() {
-		
-	}
-	
-	public void hstep() {
-		
-	}
-
     public void run() {
 	while(run=true){
         for (int i = 0; i < 10000; i++) {
             tick();
         }
     }
+	
     }
 
-    private void tick() {
+    public void tick() {
     	advanceTime();
     	handleExit();
     	updateViews();
