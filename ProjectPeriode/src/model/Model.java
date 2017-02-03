@@ -128,6 +128,7 @@ public class Model {
             } else{
             simulatorView.setCarAt(freeLocation, car);
             }
+            i++;
         }
     }
     
