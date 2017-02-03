@@ -199,7 +199,9 @@ public class SimulatorView extends JFrame {
             }
         }
     }
-
+/*
+ * Deze methode kijkt of de gegeven locatie een geldige locatie is die groter is dan 0 maar kleiner dan de number of floors/rows/places is.
+ */
     private boolean locationIsValid(Location location) {
         int floor = location.getFloor();
         int row = location.getRow();
