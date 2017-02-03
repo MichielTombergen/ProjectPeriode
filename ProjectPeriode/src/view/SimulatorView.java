@@ -3,8 +3,7 @@ package view;
 
 import javax.swing.*;
 import model.*;
-import model.Car;
-import model.Location;
+
 
 import java.awt.*;
 
@@ -19,12 +18,14 @@ public class SimulatorView extends JFrame {
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
-    private JButton BStart;
-    private JButton BStop;
-    private JButton BPause;
-    private JButton B1Step;
-    
 
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    
+    
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
@@ -33,6 +34,30 @@ public class SimulatorView extends JFrame {
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         
         carParkView = new CarParkView(this);
+        
+        JPanel buttons = new JPanel();
+        buttons.setLayout(new GridLayout(1, 0));
+
+            	button1 = new JButton("+1 Step");
+                button1.setPreferredSize(new Dimension(100, 100));
+                button1.addActionListener(e -> model.stop());
+                buttons.add(button1);
+                button2 = new JButton("Start");
+                button2.setPreferredSize(new Dimension(100, 100));
+                button2.addActionListener(e -> start());
+                buttons.add(button2);
+                button3 = new JButton("Pause");
+                button3.setPreferredSize(new Dimension(100, 100));
+                button3.addActionListener(e -> stop());
+                buttons.add(button3);
+                button4 = new JButton("Stop");
+                button4.setPreferredSize(new Dimension(100, 100));
+                button4.addActionListener(e -> stop());
+                buttons.add(button4);
+                button5 = new JButton("+100 Steps");
+                button5.setPreferredSize(new Dimension(100, 100));
+                button5.addActionListener(e -> stop());
+                buttons.add(button5);
 
         JPanel Pane1 = new JPanel();
         Pane1 .setLayout(new GridLayout(1,0));
