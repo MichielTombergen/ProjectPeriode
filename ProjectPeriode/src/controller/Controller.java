@@ -12,8 +12,8 @@ import java.awt.event.*;
  */
 public class Controller implements ActionListener {
 	
-	public Controller() {
-
+	public Controller(Model model) {
+		super();
 	}
 
 	public void actionPerformed(ActionEvent e) {

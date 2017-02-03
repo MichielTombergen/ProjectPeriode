@@ -7,7 +7,7 @@ import view.SimulatorView;
 
 
 
-public class Model {
+public class Model implements Runnable {
 	
 	private boolean run;
 
@@ -58,9 +58,13 @@ public class Model {
 	}
 
     public void run() {
+    	run=true;
         for (int i = 0; i < 10000; i++) {
             tick();
-        }
+        } try {
+			Thread.sleep(10);
+			} catch (Exception e) {} 
+		
     }
 
     private void tick() {
