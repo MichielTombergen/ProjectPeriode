@@ -8,6 +8,8 @@ import view.SimulatorView;
 
 
 public class Model {
+	
+	private boolean run;
 
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
@@ -47,8 +49,13 @@ public class Model {
         simulatorView = new SimulatorView(3, 6, 30);
     }
     
-
-
+	public void start() {
+		new Thread(this).start();
+	}
+	
+	public void stop() {
+		run=false;
+	}
 
     public void run() {
         for (int i = 0; i < 10000; i++) {
