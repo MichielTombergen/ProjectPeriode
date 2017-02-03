@@ -40,6 +40,9 @@ public class Model implements Runnable {
     int paymentSpeed = 7; // number of cars that can pay per minute
     int exitSpeed = 5; // number of cars that can leave per minute
 
+    /*
+     * Dit is de constructor van Model.
+     */
     public Model() {
         entranceCarQueue = new CarQueue();
         entrancePassQueue = new CarQueue();
@@ -49,18 +52,30 @@ public class Model implements Runnable {
         simulatorView = new SimulatorView(3, 6, 30);
     }
     
+    /*
+     * Start de simulatie.
+     */
 	public void start() {
 		new Thread(this).start();
 	}
 	
+	/*
+	 * Stop de simulatie.
+	 */
 	public void stop() {
 		run=false;
 	}
 	
+	/*
+	 * 
+	 */
 	public void step() {
 		run=false;
 	}
 	
+	/*
+	 * 
+	 */
 	public void hstep() {
 		run=false;
 	}

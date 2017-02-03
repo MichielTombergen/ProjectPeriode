@@ -14,6 +14,9 @@ public class AdHocCar extends Car {
         this.setHasToPay(true);
     }
     
+    /*
+     * Een get methode voor de kleur van het hok van de AdHocCar.
+     */
     public Color getColor(){
     	return COLOR;
     }

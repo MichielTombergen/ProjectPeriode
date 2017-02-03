@@ -13,6 +13,9 @@ public class AboCar extends Car {
         this.setHasToPay(false);
     }
     
+    /*
+     * Een get methode voor de kleur van het hok van de ParkingPassCar.
+     */
     public Color getColor(){
     	return COLOR;
     }
