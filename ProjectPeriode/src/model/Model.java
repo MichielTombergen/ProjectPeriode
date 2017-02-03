@@ -122,8 +122,12 @@ public class Model {
     			i<enterSpeed) {
             Car car = queue.removeCar();
             Location freeLocation = simulatorView.getFirstFreeLocation();
+            Location freeAboLocation = simulatorView.getFirstAboFreeLocation();
+            if(car instanceof AboCar){
+            simulatorView.setCarAt(freeAboLocation, car);
+            } else{
             simulatorView.setCarAt(freeLocation, car);
-            i++;
+            }
         }
     }
     
