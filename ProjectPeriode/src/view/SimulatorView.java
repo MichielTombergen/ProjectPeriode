@@ -2,7 +2,7 @@ package view;
 
 
 import javax.swing.*;
-
+import model.*;
 import model.Car;
 import model.Location;
 
@@ -19,6 +19,11 @@ public class SimulatorView extends JFrame {
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
+    private JButton BStart;
+    private JButton BStop;
+    private JButton BPause;
+    private JButton B1Step;
+    
 
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
@@ -29,6 +34,13 @@ public class SimulatorView extends JFrame {
         
         carParkView = new CarParkView(this);
 
+        JPanel Pane1 = new JPanel();
+        Pane1 .setLayout(new GridLayout(1,0));
+        	
+       
+        
+        
+        
         Container contentPane = getContentPane();
         contentPane.add(carParkView, BorderLayout.CENTER);
         pack();
