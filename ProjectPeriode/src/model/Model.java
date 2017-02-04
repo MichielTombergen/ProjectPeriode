@@ -51,33 +51,7 @@ public class Model implements Runnable {
         simulatorView = new SimulatorView(3, 6, 30);
     }
     
-    /*
-     * Start de simulatie.
-     */
-	public void start() {
-		new Thread(this).start();
-	}
-	
-	/*
-	 * Stop de simulatie.
-	 */
-	public void stop() {
-		
-	}
-	
-	/*
-	 * 
-	 */
-	public void step() {
-		
-	}
-	
-	/*
-	 * 
-	 */
-	public void hstep() {
-		
-	}
+
 
     public void run() {
         for (int i = 0; i < 10000; i++) {
