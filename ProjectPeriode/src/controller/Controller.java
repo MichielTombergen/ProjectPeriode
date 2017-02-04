@@ -36,7 +36,7 @@ public class Controller extends AbstractController implements ActionListener{
 		
 	}
 	public void start() {
-		new Thread(model).start();
+		model.run();
 	}
 	
 	public void stop() {
