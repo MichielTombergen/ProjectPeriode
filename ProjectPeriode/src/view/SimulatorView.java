@@ -114,6 +114,12 @@ public class SimulatorView extends JFrame {
         return false;
     }
 
+    /**
+     * Deze methode checkt eerst of de gegeven locatie geldig is in de simulator en checkt. Als dit zo is kijkt hij of er een auto op de
+     * locatie zit. Zo ja dan maakt hij die null. Daarna maakt hij ook de locatie leeg. Ook telt hij numberOfOpenSpots op. 
+     * @param location
+     * @return car
+     */
     public Car removeCarAt(Location location) {
         if (!locationIsValid(location)) {
             return null;
@@ -168,7 +174,10 @@ public class SimulatorView extends JFrame {
         return null;
     }
 
-
+/*
+ * Vind de eerstvolgende auto die gaat vertrekken. Zorg ervoor dat de locatie vrij word gemaakt als de minutesleft 0 of kleiner is en
+ * dat de auto aan het betalen is.
+ */
     public Car getFirstLeavingCar() {
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             for (int row = 0; row < getNumberOfRows(); row++) {
@@ -184,6 +193,10 @@ public class SimulatorView extends JFrame {
         return null;
     }
 
+    /*
+     * Deze methode gaat elke locatie bij langs. Als er een auto staat zorgt hij ervoor dat de tijd met een minuut tikt en dus de 
+     * tick methode over de Car methode word aangeroepen en dus minutesleft word afgetrokken.
+     */
     public void tick() {
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             for (int row = 0; row < getNumberOfRows(); row++) {
