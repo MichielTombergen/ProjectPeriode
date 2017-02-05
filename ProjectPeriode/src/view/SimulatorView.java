@@ -4,9 +4,12 @@ package view;
 import javax.swing.*;
 import model.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import controller.*;
 
-public class SimulatorView extends JFrame {
+public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +36,6 @@ public class SimulatorView extends JFrame {
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         
         carParkView = new CarParkView(this);
-        controller = new Controller();
         
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
@@ -41,23 +43,32 @@ public class SimulatorView extends JFrame {
 
             	button1 = new JButton("+1 Step");
                 button1.setPreferredSize(new Dimension(100, 100));
-                button1.addActionListener(e -> controller.step());
+                button1.addActionListener(this);
+                button1.setActionCommand("een");
                 buttons.add(button1);
                 button2 = new JButton("Start");
                 button2.setPreferredSize(new Dimension(100, 100));
-                button2.addActionListener(e -> controller.start());
+                button2.addActionListener(this);
+                button2.setActionCommand("ga");
                 buttons.add(button2);
                 button3 = new JButton("Pause");
                 button3.setPreferredSize(new Dimension(100, 100));
-                button3.addActionListener(e -> controller.pause());
+                button3.addActionListener(this);
+                button3.setActionCommand("pauze");
                 buttons.add(button3);
                 button4 = new JButton("Stop");
                 button4.setPreferredSize(new Dimension(100, 100));
-                button4.addActionListener(e -> controller.stop());
+                button4.addActionListener(this);
+                button4.setActionCommand("klaar");
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
                 button5.setPreferredSize(new Dimension(100, 100));
+<<<<<<< Upstream, based on branch 'master' of https://github.com/MichielTombergen/ProjectPeriode
                 //button5.addActionListener(e -> stop());
+=======
+                button5.addActionListener(this);
+                button5.setActionCommand("honderd");
+>>>>>>> 8729808 knoppen werken moeten alleen nog goede functies krijgen!
                 buttons.add(button5);
 
                 JPanel Pane1 = new JPanel();
@@ -230,6 +241,51 @@ public class SimulatorView extends JFrame {
         }
         return true;
     }
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		String action = ae.getActionCommand();
+		
+		if (action.equals("ga")) {
+			go();
+		}
+		
+		if (action.equals("pauze")) {
+			stop();
+		}
+		
+		if (action.equals("klaar")) {
+			step();
+		}
+		
+		if (action.equals("honderd")) {
+			hstep();
+		}
+		
+		if (action.equals("een")) {
+			pause();
+		}
+		
+	}
     
+	public void go() {
+		System.out.println("Button pressed!");
+	}
+	
+	public void stop() {
+		boolean run = false;
+	}
+	
+	public void pause() {
+		boolean run = false;
+	}
+	
+	public void step() {
+		boolean run = false;
+	}
+	
+	public void hstep() {
+		boolean run = false;
+	}
     
 }
