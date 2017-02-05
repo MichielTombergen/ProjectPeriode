@@ -7,6 +7,7 @@ import model.Model;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import run.*;
 
 import controller.*;
 
@@ -247,7 +248,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		String action = ae.getActionCommand();
 		
 		if (action.equals("ga")) {
-			go();
+			ProjectPeriode.go();
 		}
 		
 		if (action.equals("pauze")) {
@@ -266,10 +267,6 @@ public class SimulatorView extends JFrame implements ActionListener{
 			pause();
 		}
 		
-	}
-    
-	public void go() {
-		System.out.println("Button pressed!");
 	}
 	
 	public void stop() {
