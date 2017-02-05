@@ -33,6 +33,7 @@ public class SimulatorView extends JFrame {
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         
         carParkView = new CarParkView(this);
+        controller = new Controller();
         
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
