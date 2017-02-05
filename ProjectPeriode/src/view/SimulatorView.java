@@ -3,6 +3,7 @@ package view;
 
 import javax.swing.*;
 import model.*;
+import model.Model;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,6 @@ public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
-	private Controller controller;
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -273,19 +273,19 @@ public class SimulatorView extends JFrame implements ActionListener{
 	}
 	
 	public void stop() {
-		boolean run = false;
+		System.out.println("Button pressed!");
 	}
 	
 	public void pause() {
-		boolean run = false;
+		System.out.println("Button pressed!");
 	}
 	
 	public void step() {
-		boolean run = false;
+		System.out.println("Button pressed!");
 	}
 	
 	public void hstep() {
-		boolean run = false;
+		System.out.println("Button pressed!");
 	}
     
 }
