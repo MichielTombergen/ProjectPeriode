@@ -24,7 +24,7 @@ public class SimulatorView extends JFrame {
     private JButton button4;
     private JButton button5;
     
-    
+     
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
@@ -167,9 +167,13 @@ public class SimulatorView extends JFrame {
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             	for (int row = 0; row < getNumberOfRows(); row++) {
                 for (int place = 0; place < getNumberOfPlaces(); place++) {
+                    if(floor == 0 && row <=3){
                     Location location = new Location(floor, row, place);
                     if (getCarAt(location) == null) {
                         return location;
+                    }else{
+                    	
+                    }
                     }
                 }
             }
