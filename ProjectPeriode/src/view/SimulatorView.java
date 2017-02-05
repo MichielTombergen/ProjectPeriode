@@ -251,19 +251,19 @@ public class SimulatorView extends JFrame implements ActionListener{
 			ProjectPeriode.go();
 		}
 		
-		if (action.equals("pauze")) {
+		if (action.equals("klaar")) {
 			stop();
 		}
 		
-		if (action.equals("klaar")) {
-			step();
+		if (action.equals("een")) {
+			ProjectPeriode.step();
 		}
 		
 		if (action.equals("honderd")) {
-			hstep();
+			ProjectPeriode.hstep();
 		}
 		
-		if (action.equals("een")) {
+		if (action.equals("pauze")) {
 			pause();
 		}
 		
@@ -274,14 +274,6 @@ public class SimulatorView extends JFrame implements ActionListener{
 	}
 	
 	public void pause() {
-		System.out.println("Button pressed!");
-	}
-	
-	public void step() {
-		System.out.println("Button pressed!");
-	}
-	
-	public void hstep() {
 		System.out.println("Button pressed!");
 	}
     
