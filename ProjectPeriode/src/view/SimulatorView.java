@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import run.*;
+import model.CarQueue;
 
 public class SimulatorView extends JFrame implements ActionListener{
  
@@ -24,6 +25,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     private JButton button3;
     private JButton button4;
     private JButton button5;
+    private JLabel queuesize1;
     
     
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
@@ -35,10 +37,17 @@ public class SimulatorView extends JFrame implements ActionListener{
         
         carParkView = new CarParkView(this);
         
+        JPanel queuesize = new JPanel();
+        queuesize.setLayout(new GridLayout(1, 0));
+        
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-
+        		queuesize1 = new JLabel("QueueSize : 34");
+        		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
+        		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
+        		queuesize.add(queuesize1);
+        
             	button1 = new JButton("+1 Step");
                 button1.setPreferredSize(new Dimension(100, 100));
                 button1.addActionListener(this);
@@ -70,8 +79,10 @@ public class SimulatorView extends JFrame implements ActionListener{
                 setVisible(true);
         
         Container contentPane = getContentPane();
+        contentPane.setName("ParkingSimulatorBV 2017");
         contentPane.add(carParkView, BorderLayout.CENTER);
         contentPane.add(buttons, BorderLayout.SOUTH);
+        contentPane.add(queuesize, BorderLayout.NORTH);
         pack();
         setVisible(true);
 
