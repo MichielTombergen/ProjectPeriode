@@ -21,6 +21,15 @@ public class ProjectPeriode{
         }
 });
 	
+	static Thread hs = new Thread(new Runnable() {
+        public void run()
+        {
+    		for(int t = 0; t < 100; t++){
+    			model.tick();
+    		}
+        }
+});
+	
 	/**
 	 * Laat de simulator runnen.
 	 */
@@ -39,9 +48,7 @@ public class ProjectPeriode{
 	 * Laat de simulator 100 stappen doen.
 	 */
 	public static void hstep(){
-		for(int t = 0; t < 100; t++){
-			model.tick();
-		}
+		hs.start();
 	}
 	
 	/**
