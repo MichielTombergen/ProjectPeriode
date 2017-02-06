@@ -46,8 +46,8 @@ public class ProjectPeriode{
 	/**
 	 * 
 	 */
-	public static void stop() {
-		t.;
+	public static void weg() {
+		t.stop();
 	}
 	
 }

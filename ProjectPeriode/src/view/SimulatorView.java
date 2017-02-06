@@ -286,7 +286,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("klaar")) {
-			ProjectPeriode.stop();
+			ProjectPeriode.weg();
 		}
 		
 		if (action.equals("een")) {
