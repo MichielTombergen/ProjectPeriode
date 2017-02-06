@@ -64,7 +64,7 @@ public class ProjectPeriode{
 	 */
 	public static void pause() {
 	
-		t.wait();
+		System.out.println("Wow de simulatie staat niet op pauze");
 		
 	}
     
