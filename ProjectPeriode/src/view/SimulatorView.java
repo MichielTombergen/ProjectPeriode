@@ -137,7 +137,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     public void QueWarning(){
     	if(carqueue.carsInQueue() >= 20){
     		
-    		
+    		JOptionPane.showMessageDialog()
     	}
     }
 
