@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import run.*;
 
+/**
+ * In de SimulatorView word de interface van de Simulatie gemaakt.
+ * @author Marc Elzinga
+ *
+ */
 public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;

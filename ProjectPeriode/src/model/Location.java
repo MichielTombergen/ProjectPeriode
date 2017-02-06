@@ -1,6 +1,10 @@
 package model;
 
-
+/**
+ * De klasse locatie weergeeft de locaties in de simulator aan.
+ * @author Marc Elzinga
+ *
+ */
 public class Location {
 
     private int floor;

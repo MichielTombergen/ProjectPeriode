@@ -4,7 +4,11 @@ package model;
 import java.util.Random;
 import view.SimulatorView;
 
-
+/**
+ * In model word alles over de queues etc. in de simulator weergeven.
+ * @author Marc Elzinga
+ *
+ */
 
 public class Model implements Runnable {
 

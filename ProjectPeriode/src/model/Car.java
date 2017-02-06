@@ -3,6 +3,11 @@ package model;
 
 import java.awt.*;
 
+/**
+ * Dit is een superklasse voor alle soorten Cars.
+ * @author Marc Elzinga
+ *
+ */
 public abstract class Car {
 
     private Location location;

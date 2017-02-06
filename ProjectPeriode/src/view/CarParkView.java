@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 import model.Car;
 import model.Location;
 
+/**
+ * In CarParkView worden de geparkeerde auto's in simulatorview weergegeven.
+ * @author Marc Elzinga
+ *
+ */
 public class CarParkView extends JPanel {
     
     /**

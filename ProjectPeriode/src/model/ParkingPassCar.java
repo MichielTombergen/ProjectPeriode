@@ -4,6 +4,11 @@ package model;
 import java.util.Random;
 import java.awt.*;
 
+/**
+ * Dit is een subklasse van Car.
+ * @author Marc Elzinga
+ *
+ */
 public class ParkingPassCar extends Car {
 	private static final Color COLOR=Color.blue;
 	
