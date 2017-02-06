@@ -54,6 +54,10 @@ public class CarParkView extends JPanel {
         }
     }
 
+    /**
+     * Deze methode geeft voor elke keer dat het is aangeroepen elke locatie bij langs en geeft het vakje de kleur 
+     * die het volgens het programma moet hebben.
+     */
     public void updateView() {
         // Create a new car park image if the size has changed.
         if (!size.equals(getSize())) {

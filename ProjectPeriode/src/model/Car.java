@@ -90,7 +90,7 @@ public abstract class Car {
         minutesLeft--;
     }
     
-    /*
+    /**
      * Deze abstracte getColor() is ervoor dat de getColor via Car kan worden aangeroepen. Wanneer die word aangeroepen word deze niet gebruikt maar juist
      * de getColor() methode in de subklasses aangeroepen.
      */

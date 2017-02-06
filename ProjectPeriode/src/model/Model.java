@@ -38,7 +38,7 @@ public class Model implements Runnable {
     int paymentSpeed = 7; // number of cars that can pay per minute
     int exitSpeed = 5; // number of cars that can leave per minute
 
-    /*
+    /**
      * Dit is de constructor van Model.
      */
     public Model() {
@@ -51,13 +51,19 @@ public class Model implements Runnable {
     }
     
 
-
+/**
+ * voor 10000 ticks gaat de applicatie runnen.
+ */
     public void run() {
         for (int i = 0; i < 10000; i++) {
             tick();
         }
     }
 
+    /**
+     * Deze methode laat de tijd tikken. de Cars die moeten vertrekken vertrekken en die arriveren worden toegevoegt.
+     * Deze krijgen een positie in de parkeergarage. Dit word geupdate in de carParkView.
+     */
     public void tick() {
     	advanceTime();
     	handleExit();
@@ -71,6 +77,9 @@ public class Model implements Runnable {
     	handleEntrance();
     }
 
+    /**
+     * De tijd word bepaalt.
+     */
     private void advanceTime(){
         // Advance the time by one minute.
         minute++;
@@ -88,6 +97,9 @@ public class Model implements Runnable {
 
     }
 
+    /**
+     * De ingangen worden toegevoegt en Cars arriveren.
+     */
     private void handleEntrance(){
     	carsArriving();
     	carsEntering(entrancePassQueue);
@@ -95,18 +107,29 @@ public class Model implements Runnable {
     	carsEntering(entranceAboQueue);
     }
     
+    /**
+     * Cars die klaar zijn om te vertrekken word bepaalt of ze moeten betalen. Zo ja dan betalen ze en verlaten
+     * zij de simulatorview. Als ze betaalt hebben worden ze toegevoegt aan de exitCarQueue.
+     */
     private void handleExit(){
         carsReadyToLeave();
         carsPaying();
         carsLeaving();
     }
     
+    /**
+     * De tickmethode in SimulatorView word aangeroepen om de positie van alle Cars te veranderen. Dit word
+     * in de carParkView geupdatet.
+     */
     private void updateViews(){
     	simulatorView.tick();
         // Update the car park view.
         simulatorView.updateView();	
     }
     
+    /**
+     * Laat Cars arriveren. Voor elk type Car zijn er vershillende aantallen Cars die arriveren.
+     */
     private void carsArriving(){
     	int numberOfCars=getNumberOfCars(weekDayArrivals, weekendArrivals);
         addArrivingCars(numberOfCars, AD_HOC);    	
@@ -134,6 +157,10 @@ public class Model implements Runnable {
         }
     }
     
+    /**
+     * Neem de eerste Car die de simulator gaat verlaten en laat deze eventueel betalen door hem in de 
+     * paymentCarQueue te zetten. Als die al heeft betaalt dan verlaat deze zijn plaats.
+     */
     private void carsReadyToLeave(){
         // Add leaving cars to the payment queue.
         Car car = simulatorView.getFirstLeavingCar();
@@ -149,6 +176,9 @@ public class Model implements Runnable {
         }
     }
 
+    /**
+     * Laat de Cars in de paymentCarQueue betalen.
+     */
     private void carsPaying(){
         // Let cars pay.
     	int i=0;
@@ -160,6 +190,9 @@ public class Model implements Runnable {
     	}
     }
     
+    /**
+     * Laat Cars uit de exitCarQueue vertrekken.
+     */
     private void carsLeaving(){
         // Let cars leave.
     	int i=0;
@@ -169,6 +202,13 @@ public class Model implements Runnable {
     	}	
     }
     
+    /**
+     * Genereerd een willekeurig aantal auto's die arriveren. Hierbij word rekening gehouden of het een weekday
+     * of in het weekend is.
+     * @param weekDay
+     * @param weekend
+     * @return numberOfCarsPerHour
+     */
     private int getNumberOfCars(int weekDay, int weekend){
         Random random = new Random();
 
@@ -183,6 +223,11 @@ public class Model implements Runnable {
         return (int)Math.round(numberOfCarsPerHour / 60);	
     }
     
+    /**
+     * Haalt auto's uit hun entranceCarQueue's en voegt ze toe aan de parkeerSimulator.
+     * @param numberOfCars
+     * @param type
+     */
     private void addArrivingCars(int numberOfCars, String type){
         // Add the cars to the back of the queue.
     	switch(type) {
@@ -204,6 +249,10 @@ public class Model implements Runnable {
     	}
     }
     
+    /**
+     * Haalt een Car uit de simulatorView en voegt deze toe aan de exitCarQueue
+     * @param car
+     */
     private void carLeavesSpot(Car car){
     	simulatorView.removeCarAt(car.getLocation());
         exitCarQueue.addCar(car);
