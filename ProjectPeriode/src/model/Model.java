@@ -36,9 +36,9 @@ public class Model implements Runnable {
     int weekDayPassArrivals= 50; // average number of arriving cars per hour
     int weekendPassArrivals = 5; // average number of arriving cars per hour
     int weekDayAboArrivals= 500; // average number of arriving cars per hour
-    int weekendAboArrivals = 10; // average number of arriving cars per hour
+    int weekendAboArrivals = 75; // average number of arriving cars per hour
 
-    int enterSpeed = 6; // number of cars that can enter per minute
+    int enterSpeed = 3; // number of cars that can enter per minute
     int paymentSpeed = 7; // number of cars that can pay per minute
     int exitSpeed = 5; // number of cars that can leave per minute
 
