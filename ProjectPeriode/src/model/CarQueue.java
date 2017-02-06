@@ -10,7 +10,7 @@ import java.util.Queue;
  *
  */
 public class CarQueue {
-    private Queue<Car> queue = new LinkedList<>();
+    public Queue<Car> queue = new LinkedList<>();
 
     public boolean addCar(Car car) {
         return queue.add(car);
@@ -22,5 +22,9 @@ public class CarQueue {
 
     public int carsInQueue(){
     	return queue.size();
+    }
+    
+    public void queueSize(){
+    	System.out.println(queue.size());
     }
 }
