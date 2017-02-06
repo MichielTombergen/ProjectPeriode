@@ -51,9 +51,12 @@ public class Model implements Runnable {
         entranceAboQueue = new CarQueue();
         paymentCarQueue = new CarQueue();
         exitCarQueue = new CarQueue();
-        simulatorView = new SimulatorView(3, 6, 30);
+        simulatorView = new SimulatorView(this , 3, 6, 30);
     }
-    
+ 
+    public CarQueue getEntranceCarQueue(){
+    	return entranceCarQueue;
+    }
 
 /**
  * voor 10000 ticks gaat de applicatie runnen.

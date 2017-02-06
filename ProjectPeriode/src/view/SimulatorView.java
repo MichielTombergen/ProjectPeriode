@@ -23,7 +23,6 @@ public class SimulatorView extends JFrame implements ActionListener{
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
-    private CarQueue carqueue;
 
     private JButton button1;
     private JButton button2;
@@ -32,6 +31,8 @@ public class SimulatorView extends JFrame implements ActionListener{
     private JButton button5;
     private JLabel queuesize1;
     
+    private CarQueue entrance;
+    
     /**
      * De constructor voor Simulatorview. Hier worden de frames en buttons etc. gemaakt.
      * @param numberOfFloors
@@ -39,14 +40,14 @@ public class SimulatorView extends JFrame implements ActionListener{
      * @param numberOfPlaces
      */
     
-    public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
+    public SimulatorView(Model model, int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
         this.numberOfPlaces = numberOfPlaces;
         this.numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
-        CarQueue carqueue = new CarQueue();
         carParkView = new CarParkView(this);
+        
         
         JPanel queuesize = new JPanel();
         queuesize.setLayout(new GridLayout(1, 0));
@@ -54,7 +55,9 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-        		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
+        entrance = model.getEntranceCarQueue();
+        
+        		queuesize1 = new JLabel("QueueSize :" + entrance.carsInQueue());
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
 
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
