@@ -29,6 +29,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     private JButton button3;
     private JButton button4;
     private JButton button5;
+    private JButton button6;
     private JLabel queuesize1;
     
     private CarQueue entrance;
@@ -88,6 +89,11 @@ public class SimulatorView extends JFrame implements ActionListener{
                 button5.addActionListener(this);
                 button5.setActionCommand("honderd");
                 buttons.add(button5);
+                button6 = new JButton("Opbrengst");
+                button6.setPreferredSize(new Dimension(100, 50));
+                button6.addActionListener(this);
+                button6.setActionCommand("Opbrengst");
+                buttons.add(button6);
 
                 JPanel Pane1 = new JPanel();
                 Pane1 .setLayout(new GridLayout(1,0));
@@ -306,6 +312,18 @@ public class SimulatorView extends JFrame implements ActionListener{
 			ProjectPeriode.pause();
 		}
 		
+		if(action.equals("Opbrengst")){
+			JOptionPane.showMessageDialog(null, "Totale opbrengst: " + getOpbrengst());
+			JOptionPane.showMessageDialog(null, "Totale verwachte opbrengst: " + getVerwachteOpbrengst());
+		}
 	}
-	
+	 public int getOpbrengst() {
+		 int Opbrengst = (int)(Math.random() * 200 + 50);
+		 return Opbrengst;
+	 }
+	 
+	 public int getVerwachteOpbrengst() {
+		 int Opbrengst1 = (int)(Math.random() * 500 + 100);
+		 return Opbrengst1;
+	 }
 }
