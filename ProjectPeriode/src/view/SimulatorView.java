@@ -61,7 +61,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-        		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
+        		queuesize1 = new JLabel("QueueSize :");
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
@@ -185,17 +185,6 @@ public class SimulatorView extends JFrame implements ActionListener{
         return false;
 
     }
-    
-    public void QueWarning(){
-    	if(carqueue.carsInQueue() >= 20){
-    		
-    		JOptionPane.showMessageDialog(null,"Te veel Auto's in wachtrij!");
-    	}
-
-    }
-
-    
-
     
     /**
      * Deze methode checkt eerst of de gegeven locatie geldig is in de simulator en checkt. Als dit zo is kijkt hij of er een auto op de
