@@ -172,13 +172,6 @@ public class SimulatorView extends JFrame implements ActionListener{
         }
         return false;
     }
-    
-    public void QueWarning(){
-    	if(carqueue.carsInQueue() >= 20){
-    		
-    		JOptionPane.showMessageDialog(null, "Teveel auto's in wachtrij!");
-    	}
-    }
 
     /**
      * Deze methode checkt eerst of de gegeven locatie geldig is in de simulator en checkt. Als dit zo is kijkt hij of er een auto op de
@@ -298,7 +291,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("klaar")) {
-			stop();
+			ProjectPeriode.weg();
 		}
 		
 		if (action.equals("een")) {
@@ -315,12 +308,6 @@ public class SimulatorView extends JFrame implements ActionListener{
 		
 	}
 	
-	/**
-	 * 
-	 */
-	public void stop() {
-		System.out.println("Button pressed!");
-	}
 	
 	/**
 	 * 

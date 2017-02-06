@@ -5,7 +5,6 @@ import model.Model;
 public class ProjectPeriode{
 
 	public static Model model;
-	private static Thread threadsim = null;
 	
 	/**
 	 * Maakt een new Model aan. Zonder deze methode kan de Simulator niet runnen.
@@ -14,13 +13,18 @@ public class ProjectPeriode{
 		model = new Model();
 	}
 	
+	static Thread t = new Thread(new Runnable() {
+        public void run()
+        {
+             model.run();
+        }
+});
+	
 	/**
 	 * Laat de simulator runnen.
 	 */
 	public static void go() {
-		threadsim = new Thread();
-		model.run();
-		threadsim.start();
+		t.start();
 	}
 	
 	/**
@@ -38,6 +42,13 @@ public class ProjectPeriode{
 			model.tick();
 		}
 	}
-
+	
+	/**
+	 * 
+	 */
+	public static void weg() {
+		t.stop();
+	}
+	
 }
 
