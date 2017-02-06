@@ -18,6 +18,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
+    private CarQueue carqueue;
 
     private JButton button1;
     private JButton button2;
@@ -33,7 +34,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         this.numberOfPlaces = numberOfPlaces;
         this.numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
-        
+        CarQueue carqueue = new CarQueue();
         carParkView = new CarParkView(this);
         
         JPanel queuesize = new JPanel();
@@ -42,7 +43,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-        		queuesize1 = new JLabel("QueueSize : 34");
+        		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
@@ -131,6 +132,13 @@ public class SimulatorView extends JFrame implements ActionListener{
             return true;
         }
         return false;
+    }
+    
+    public void QueWarning(){
+    	if(carqueue.carsInQueue() >= 20){
+    		
+    		
+    	}
     }
 
     /**
