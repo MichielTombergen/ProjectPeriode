@@ -3,13 +3,10 @@ package view;
 
 import javax.swing.*;
 import model.*;
-import model.Model;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import run.*;
-
-import controller.*;
 
 public class SimulatorView extends JFrame implements ActionListener{
  

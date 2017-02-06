@@ -1,7 +1,6 @@
 package controller;
 
 import model.*;
-import java.awt.event.*;
 
 /**
  * The controller reacts on input received from the view. 
