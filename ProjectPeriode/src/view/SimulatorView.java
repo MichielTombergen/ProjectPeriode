@@ -25,8 +25,10 @@ public class SimulatorView extends JFrame implements ActionListener{
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
+
     private CarQueue carqueue;
     
+
 
     private JButton button1;
     private JButton button2;
@@ -50,8 +52,10 @@ public class SimulatorView extends JFrame implements ActionListener{
         this.numberOfPlaces = numberOfPlaces;
         this.numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
+
         CarQueue carqueue = new CarQueue();
         
+
         carParkView = new CarParkView(this);
         
         
@@ -74,27 +78,27 @@ public class SimulatorView extends JFrame implements ActionListener{
         		
         		
             	button1 = new JButton("+1 Step");
-                button1.setPreferredSize(new Dimension(100, 100));
+                button1.setPreferredSize(new Dimension(100, 50));
                 button1.addActionListener(this);
                 button1.setActionCommand("een");
                 buttons.add(button1);
                 button2 = new JButton("Start");
-                button2.setPreferredSize(new Dimension(100, 100));
+                button2.setPreferredSize(new Dimension(100, 50));
                 button2.addActionListener(this);
                 button2.setActionCommand("ga");
                 buttons.add(button2);
                 button3 = new JButton("Pause");
-                button3.setPreferredSize(new Dimension(100, 100));
+                button3.setPreferredSize(new Dimension(100, 50));
                 button3.addActionListener(this);
                 button3.setActionCommand("pauze");
                 buttons.add(button3);
                 button4 = new JButton("Stop");
-                button4.setPreferredSize(new Dimension(100, 100));
+                button4.setPreferredSize(new Dimension(100, 50));
                 button4.addActionListener(this);
                 button4.setActionCommand("klaar");
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
-                button5.setPreferredSize(new Dimension(100, 100));
+                button5.setPreferredSize(new Dimension(100, 50));
                 button5.addActionListener(this);
                 button5.setActionCommand("honderd");
                 buttons.add(button5);
@@ -187,6 +191,7 @@ public class SimulatorView extends JFrame implements ActionListener{
             return true;
         }
         return false;
+
     }
     
     public void QueWarning(){
@@ -194,6 +199,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     		
     		JOptionPane.showMessageDialog(null,"Te veel Auto's in wachtrij!");
     	}
+
     }
 
     
@@ -317,7 +323,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("klaar")) {
-			stop();
+			ProjectPeriode.weg();
 		}
 		
 		if (action.equals("een")) {
@@ -329,7 +335,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("pauze")) {
-			pause();
+			ProjectPeriode.pause();
 		}
 		
 		if (action.equals("Opbrengst")) {
@@ -339,6 +345,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 	}
 	
+
 	public static int  getOpbrengst() {
     	int Opbrengst  = (int)(Math.random() * 200 + 50);
     	return Opbrengst;
@@ -363,4 +370,5 @@ public class SimulatorView extends JFrame implements ActionListener{
 		System.out.println("Button pressed!");
 	}
     
+
 }
