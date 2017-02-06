@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import run.*;
-import model.CarQueue;
 
 public class SimulatorView extends JFrame implements ActionListener{
  
