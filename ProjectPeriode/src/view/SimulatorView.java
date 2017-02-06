@@ -298,17 +298,9 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("pauze")) {
-			pause();
+			ProjectPeriode.pause();
 		}
 		
 	}
 	
-	
-	/**
-	 * 
-	 */
-	public void pause() {
-		System.out.println("Button pressed!");
-	}
-    
 }
