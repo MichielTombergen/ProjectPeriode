@@ -5,7 +5,6 @@ import model.Model;
 public class ProjectPeriode{
 
 	public static Model model;
-	private volatile boolean suspended;
 	public static boolean Paused = true;
 	
 	/**
