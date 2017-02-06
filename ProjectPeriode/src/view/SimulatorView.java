@@ -79,11 +79,11 @@ public class SimulatorView extends JFrame implements ActionListener{
                 setVisible(true);
         
         Container contentPane = getContentPane();
-        contentPane.setName("ParkingSimulatorBV 2017");
         contentPane.add(carParkView, BorderLayout.CENTER);
         contentPane.add(buttons, BorderLayout.SOUTH);
         contentPane.add(queuesize, BorderLayout.NORTH);
         pack();
+        setTitle("ParkingSimulatorBV 2017");
         setVisible(true);
 
         updateView();
