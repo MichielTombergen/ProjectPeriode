@@ -4,8 +4,9 @@ import model.Model;
 
 public class ProjectPeriode{
 
-	public String name;
 	public static Model model;
+	private volatile boolean suspended;
+	public static boolean Paused = true;
 	
 	/**
 	 * Maakt een new Model aan. Zonder deze methode kan de Simulator niet runnen.
@@ -14,10 +15,19 @@ public class ProjectPeriode{
 		model = new Model();
 	}
 	
-	static Thread t = new Thread(new Runnable() {
-        public void run()
-        {
-             model.run();
+	public static Thread t = new Thread(new Runnable() {
+        public void run() {
+            while(Paused != false){
+                try{
+                    model.run();
+                    Thread.sleep(100);
+                } catch (InterruptedException iex) {
+                    System.out.println("Exception in thread: "+iex.getMessage());
+                }
+            }
+            
+            System.out.println("End of Main Thread...");
+            
         }
 });
 	
