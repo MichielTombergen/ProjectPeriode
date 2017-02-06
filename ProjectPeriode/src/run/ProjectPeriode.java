@@ -4,6 +4,7 @@ import model.Model;
 
 public class ProjectPeriode{
 
+	public String name;
 	public static Model model;
 	
 	/**
@@ -46,6 +47,7 @@ public class ProjectPeriode{
 	/**
 	 * 
 	 */
+	@SuppressWarnings("deprecation")
 	public static void weg() {
 		t.stop();
 	}
