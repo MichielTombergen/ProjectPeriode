@@ -3,9 +3,11 @@ package view;
 
 import javax.swing.*;
 import model.*;
+import model.Model;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import run.*;
 
 import controller.*;
 
@@ -13,7 +15,6 @@ public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
-	private Controller controller;
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -27,7 +28,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     private JButton button4;
     private JButton button5;
     
-     
+    
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
@@ -63,7 +64,8 @@ public class SimulatorView extends JFrame implements ActionListener{
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
                 button5.setPreferredSize(new Dimension(100, 100));
-
+                button5.addActionListener(this);
+                button5.setActionCommand("honderd");
                 buttons.add(button5);
 
                 JPanel Pane1 = new JPanel();
@@ -174,13 +176,9 @@ public class SimulatorView extends JFrame implements ActionListener{
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             	for (int row = 0; row < getNumberOfRows(); row++) {
                 for (int place = 0; place < getNumberOfPlaces(); place++) {
-                    if(floor == 0 && row <=3){
                     Location location = new Location(floor, row, place);
                     if (getCarAt(location) == null) {
                         return location;
-                    }else{
-                    	
-                    }
                     }
                 }
             }
@@ -242,45 +240,33 @@ public class SimulatorView extends JFrame implements ActionListener{
 		String action = ae.getActionCommand();
 		
 		if (action.equals("ga")) {
-			go();
-		}
-		
-		if (action.equals("pauze")) {
-			stop();
+			ProjectPeriode.go();
 		}
 		
 		if (action.equals("klaar")) {
-			step();
-		}
-		
-		if (action.equals("honderd")) {
-			hstep();
+			stop();
 		}
 		
 		if (action.equals("een")) {
+			ProjectPeriode.step();
+		}
+		
+		if (action.equals("honderd")) {
+			ProjectPeriode.hstep();
+		}
+		
+		if (action.equals("pauze")) {
 			pause();
 		}
 		
 	}
-    
-	public void go() {
+	
+	public void stop() {
 		System.out.println("Button pressed!");
 	}
 	
-	public void stop() {
-		boolean run = false;
-	}
-	
 	public void pause() {
-		boolean run = false;
-	}
-	
-	public void step() {
-		boolean run = false;
-	}
-	
-	public void hstep() {
-		boolean run = false;
+		System.out.println("Button pressed!");
 	}
     
 }
