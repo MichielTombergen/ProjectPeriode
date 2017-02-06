@@ -26,10 +26,6 @@ public class SimulatorView extends JFrame implements ActionListener{
     private int numberOfOpenSpots;
     private Car[][][] cars;
 
-    private CarQueue carqueue;
-    
-
-
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -53,11 +49,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         this.numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
 
-        CarQueue carqueue = new CarQueue();
-        
-
         carParkView = new CarParkView(this);
-        
         
         JPanel queuesize = new JPanel();
         queuesize.setLayout(new GridLayout(1, 0));
