@@ -61,27 +61,27 @@ public class SimulatorView extends JFrame implements ActionListener{
         		queuesize.add(queuesize1);
         
             	button1 = new JButton("+1 Step");
-                button1.setPreferredSize(new Dimension(100, 100));
+                button1.setPreferredSize(new Dimension(100, 50));
                 button1.addActionListener(this);
                 button1.setActionCommand("een");
                 buttons.add(button1);
                 button2 = new JButton("Start");
-                button2.setPreferredSize(new Dimension(100, 100));
+                button2.setPreferredSize(new Dimension(100, 50));
                 button2.addActionListener(this);
                 button2.setActionCommand("ga");
                 buttons.add(button2);
                 button3 = new JButton("Pause");
-                button3.setPreferredSize(new Dimension(100, 100));
+                button3.setPreferredSize(new Dimension(100, 50));
                 button3.addActionListener(this);
                 button3.setActionCommand("pauze");
                 buttons.add(button3);
                 button4 = new JButton("Stop");
-                button4.setPreferredSize(new Dimension(100, 100));
+                button4.setPreferredSize(new Dimension(100, 50));
                 button4.addActionListener(this);
                 button4.setActionCommand("klaar");
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
-                button5.setPreferredSize(new Dimension(100, 100));
+                button5.setPreferredSize(new Dimension(100, 50));
                 button5.addActionListener(this);
                 button5.setActionCommand("honderd");
                 buttons.add(button5);
@@ -173,7 +173,7 @@ public class SimulatorView extends JFrame implements ActionListener{
     public void QueWarning(){
     	if(carqueue.carsInQueue() >= 20){
     		
-    		JOptionPane.showMessageDialog("");
+    		JOptionPane.showMessageDialog(null, "Teveel auto's in wachtrij!");
     	}
     }
 
