@@ -2,11 +2,13 @@ package view;
 
 
 import javax.swing.*;
+import javax.swing.JOptionPane;
 import model.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import run.*;
+import run.*;;
+
 
 /**
  * In de SimulatorView word de interface van de Simulatie gemaakt.
@@ -24,13 +26,16 @@ public class SimulatorView extends JFrame implements ActionListener{
     private int numberOfOpenSpots;
     private Car[][][] cars;
     private CarQueue carqueue;
+    
 
     private JButton button1;
     private JButton button2;
     private JButton button3;
     private JButton button4;
     private JButton button5;
+    private JButton button6;
     private JLabel queuesize1;
+   
     
     /**
      * De constructor voor Simulatorview. Hier worden de frames en buttons etc. gemaakt.
@@ -46,20 +51,28 @@ public class SimulatorView extends JFrame implements ActionListener{
         this.numberOfOpenSpots = numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         CarQueue carqueue = new CarQueue();
+        
         carParkView = new CarParkView(this);
+        
         
         JPanel queuesize = new JPanel();
         queuesize.setLayout(new GridLayout(1, 0));
+        
+        JPanel Opbrengst = new JPanel();
+        Opbrengst.setLayout(new GridLayout(1, 0));
+        
         
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
         		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
-
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
         
+        	
+        		
+        		
             	button1 = new JButton("+1 Step");
                 button1.setPreferredSize(new Dimension(100, 100));
                 button1.addActionListener(this);
@@ -85,7 +98,12 @@ public class SimulatorView extends JFrame implements ActionListener{
                 button5.addActionListener(this);
                 button5.setActionCommand("honderd");
                 buttons.add(button5);
-
+                button6 = new JButton("Opbrengst");
+                button6.setPreferredSize(new Dimension(100, 100));
+                button6.addActionListener(this);
+                button6.setActionCommand("Opbrengst");
+                buttons.add(button6);
+            
                 JPanel Pane1 = new JPanel();
                 Pane1 .setLayout(new GridLayout(1,0));
                 setVisible(true);
@@ -94,6 +112,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         contentPane.add(carParkView, BorderLayout.CENTER);
         contentPane.add(buttons, BorderLayout.SOUTH);
         contentPane.add(queuesize, BorderLayout.NORTH);
+        contentPane.add(Opbrengst, BorderLayout.WEST);
         pack();
         setTitle("ParkingSimulatorBV 2017");
         setVisible(true);
@@ -173,10 +192,13 @@ public class SimulatorView extends JFrame implements ActionListener{
     public void QueWarning(){
     	if(carqueue.carsInQueue() >= 20){
     		
-    		JOptionPane.showMessageDialog("");
+    		JOptionPane.showMessageDialog(null,"Te veel Auto's in wachtrij!");
     	}
     }
 
+    
+
+    
     /**
      * Deze methode checkt eerst of de gegeven locatie geldig is in de simulator en checkt. Als dit zo is kijkt hij of er een auto op de
      * locatie zit. Zo ja dan maakt hij die null. Daarna maakt hij ook de locatie leeg. Ook telt hij numberOfOpenSpots op. 
@@ -310,7 +332,22 @@ public class SimulatorView extends JFrame implements ActionListener{
 			pause();
 		}
 		
+		if (action.equals("Opbrengst")) {
+			pause();
+			JOptionPane.showMessageDialog(null, "Totale opbrengst:"  + getOpbrengst());
+			JOptionPane.showMessageDialog(null, "VerwachteOpbrengst: " + getVerwachteOpbrengst());
+		}
 	}
+	
+	public static int  getOpbrengst() {
+    	int Opbrengst  = (int)(Math.random() * 200 + 50);
+    	return Opbrengst;
+    }
+	
+	public static int  getVerwachteOpbrengst() {
+    	int Opbrengst1  = (int)(Math.random() * 500 + 200);
+    	return Opbrengst1;
+    }
 	
 	/**
 	 * 

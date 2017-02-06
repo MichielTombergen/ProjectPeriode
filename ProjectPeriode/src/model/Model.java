@@ -28,6 +28,8 @@ public class Model implements Runnable {
     private int day = 0;
     private int hour = 0;
     private int minute = 0;
+    public static int  TotalOpbrengst = 0;
+    private static int Opbrengst;
 
     private int tickPause = 100;
 
@@ -47,6 +49,7 @@ public class Model implements Runnable {
      */
     public Model() {
         entranceCarQueue = new CarQueue();
+      
         entrancePassQueue = new CarQueue();
         entranceAboQueue = new CarQueue();
         paymentCarQueue = new CarQueue();
@@ -127,8 +130,9 @@ public class Model implements Runnable {
      */
     private void updateViews(){
     	simulatorView.tick();
+    	
         // Update the car park view.
-        simulatorView.updateView();	
+        simulatorView.updateView();
     }
     
     /**
@@ -191,7 +195,14 @@ public class Model implements Runnable {
             // TODO Handle payment.
             carLeavesSpot(car);
             i++;
+            TotalOpbrengst++;
     	}
+    }
+    
+    public static int  getOpbrengst() {
+    	Opbrengst = (int) (TotalOpbrengst*5.00);
+    	int Opbrengst1 = (Opbrengst* 60);
+    	return Opbrengst1;
     }
     
     /**

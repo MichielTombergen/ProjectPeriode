@@ -25,4 +25,6 @@ public class ParkingPassCar extends Car {
     public Color getColor(){
     	return COLOR;
     }
+    
 }
+

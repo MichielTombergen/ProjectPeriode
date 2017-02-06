@@ -11,9 +11,10 @@ import java.awt.*;
 public abstract class Car {
 
     private Location location;
-    private int minutesLeft;
+    private static int minutesLeft;
     private boolean isPaying;
     private boolean hasToPay;
+
 
     /**
      * Constructor for objects of class Car
@@ -86,6 +87,9 @@ public abstract class Car {
     public void setHasToPay(boolean hasToPay) {
         this.hasToPay = hasToPay;
     }
+    
+  
+    
     
     /**
      * Er word een minuut afgetrokken van de tijd die over is voor de auto
