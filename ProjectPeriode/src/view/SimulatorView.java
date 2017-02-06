@@ -54,13 +54,9 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-<<<<<<< HEAD
         		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
-=======
-        		queuesize1 = new JLabel("QueueSize : 34");
-        		queuesize1.setFont(new Font("Serif", Font.BOLD, 24));
->>>>>>> branch 'master' of https://github.com/MichielTombergen/ProjectPeriode.git
+
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
         
