@@ -1,14 +1,11 @@
 package controller;
 
 import model.*;
-import java.awt.event.*;
 
 /**
- * The controller reacts on input received from the view. 
- * Here implementation is provided for the actionPerformed method
- * that is implemented in the AbstractController.
+ * De controller doet ook niets op dit moment.
  * @author MichielTombergen
- * @version 02-02-2017
+ * @version 06-02-2017
  */
 public class Controller extends AbstractController{
 	
