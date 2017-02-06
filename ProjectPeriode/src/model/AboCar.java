@@ -14,7 +14,7 @@ public class AboCar extends Car {
     }
     
     /*
-     * Een get methode voor de kleur van het hok van de ParkingPassCar.
+     * Een get methode voor de kleur van het hok van de Car.
      */
     public Color getColor(){
     	return COLOR;
