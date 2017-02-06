@@ -10,7 +10,7 @@ import java.util.Queue;
  *
  */
 public class CarQueue {
-    private Queue<Car> queue = new LinkedList<>();
+    public Queue<Car> queue = new LinkedList<>();
 
     /**
      * Voegt een Car toe aan de Queue
