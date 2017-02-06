@@ -58,7 +58,7 @@ public class Model implements Runnable {
         }
     }
 
-    private void tick() {
+    public void tick() {
     	advanceTime();
     	handleExit();
     	updateViews();
