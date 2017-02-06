@@ -34,8 +34,4 @@ public class CarQueue {
     public int carsInQueue(){
     	return queue.size();
     }
-    
-    public void queueSize(){
-    	System.out.println(queue.size());
-    }
 }

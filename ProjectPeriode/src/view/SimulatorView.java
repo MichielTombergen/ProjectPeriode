@@ -58,7 +58,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         entrance = model.getEntranceCarQueue();
         
         		queuesize1 = new JLabel("QueueSize :" + entrance.carsInQueue());
-        		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
+        		queuesize1.setFont(new Font("Serif", Font.BOLD, 20));
 
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
