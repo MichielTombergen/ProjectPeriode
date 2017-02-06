@@ -59,5 +59,14 @@ public class ProjectPeriode{
 		t.stop();
 	}
 	
+	/**
+	 * 
+	 */
+	public static void pause() {
+	
+		t.wait();
+		
+	}
+    
 }
 
