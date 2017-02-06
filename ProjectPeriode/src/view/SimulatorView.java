@@ -52,7 +52,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
-        		queuesize1 = new JLabel("QueueSize :" + carsInQueue());
+        		queuesize1 = new JLabel("QueueSize :");
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
 
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
