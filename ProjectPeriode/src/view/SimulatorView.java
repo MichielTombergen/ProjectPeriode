@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import run.*;
 
+/**
+ * In de SimulatorView word de interface van de Simulatie gemaakt.
+ * @author Marc Elzinga
+ *
+ */
 public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
@@ -27,6 +32,12 @@ public class SimulatorView extends JFrame implements ActionListener{
     private JButton button5;
     private JLabel queuesize1;
     
+    /**
+     * De constructor voor Simulatorview. Hier worden de frames en buttons etc. gemaakt.
+     * @param numberOfFloors
+     * @param numberOfRows
+     * @param numberOfPlaces
+     */
     
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
@@ -43,8 +54,13 @@ public class SimulatorView extends JFrame implements ActionListener{
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
         
+<<<<<<< HEAD
         		queuesize1 = new JLabel("QueueSize :" + carqueue.carsInQueue());
         		queuesize1.setFont(new Font("Serif", Font.BOLD, 28));
+=======
+        		queuesize1 = new JLabel("QueueSize : 34");
+        		queuesize1.setFont(new Font("Serif", Font.BOLD, 24));
+>>>>>>> branch 'master' of https://github.com/MichielTombergen/ProjectPeriode.git
         		queuesize1.setHorizontalAlignment( SwingConstants.CENTER );
         		queuesize.add(queuesize1);
         
@@ -89,29 +105,53 @@ public class SimulatorView extends JFrame implements ActionListener{
         updateView();
     }
 
+    /**
+     * Dit start de carParkView en roept de updateView methode in CarParkView op.
+     */
     public void start() {
         carParkView.updateView();
     }
     
+    /**
+     * Dit roept de updateView op in carParkView 
+     */
     public void updateView() {
         carParkView.updateView();
     }
     
+    /**
+     * @return numberOfFloors
+     */
 	public int getNumberOfFloors() {
         return numberOfFloors;
     }
 
+	/**
+	 * @return numberOfRows
+	 */
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
+    /**
+     * @return NumberOfPlaces
+     */
     public int getNumberOfPlaces() {
         return numberOfPlaces;
     }
 
+    /**
+     * @return getNumberOfOpenSpots
+     */
     public int getNumberOfOpenSpots(){
     	return numberOfOpenSpots;
     }
+    
+    /**
+     * Deze methode checkt eerst of de gegeven locatie geldig is. Zo ja returnt hij de Car op die locatie.
+     * @param location
+     * @return Car
+     */
     
     public Car getCarAt(Location location) {
         if (!locationIsValid(location)) {
@@ -160,7 +200,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         numberOfOpenSpots++;
         return car;
     }
-/*
+/**
  * De eerste vrije locatie word opgezocht. Maar door de if statement kunnen ze niet op floor 0 in rijen 1-3 parkeren en zullen zij die overslaan.
  */
     public Location getFirstFreeLocation() {
@@ -183,7 +223,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         return null;
     }
     
-    /*
+    /**
      * De eerste vrije locatie word opgeroepen. Het begint bij de eerste plaats op floor 0. Wanneer er niet genoeg plekken voor abbonomentenhouders
      * gereserveerd zijn. Dan zullen abonomentenhouders zich voegen tussen de gewone bezoekers.
      */
@@ -201,7 +241,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         return null;
     }
 
-/*
+/**
  * Vind de eerstvolgende auto die gaat vertrekken. Zorg ervoor dat de locatie vrij word gemaakt als de minutesleft 0 of kleiner is en
  * dat de auto aan het betalen is.
  */
@@ -220,7 +260,7 @@ public class SimulatorView extends JFrame implements ActionListener{
         return null;
     }
 
-    /*
+    /**
      * Deze methode gaat elke locatie bij langs. Als er een auto staat zorgt hij ervoor dat de tijd met een minuut tikt en dus de 
      * tick methode over de Car methode word aangeroepen en dus minutesleft word afgetrokken.
      */
@@ -237,7 +277,7 @@ public class SimulatorView extends JFrame implements ActionListener{
             }
         }
     }
-/*
+/**
  * Deze methode kijkt of de gegeven locatie een geldige locatie is die groter is dan 0 maar kleiner dan de number of floors/rows/places is.
  */
     private boolean locationIsValid(Location location) {
@@ -276,10 +316,16 @@ public class SimulatorView extends JFrame implements ActionListener{
 		
 	}
 	
+	/**
+	 * 
+	 */
 	public void stop() {
 		System.out.println("Button pressed!");
 	}
 	
+	/**
+	 * 
+	 */
 	public void pause() {
 		System.out.println("Button pressed!");
 	}
