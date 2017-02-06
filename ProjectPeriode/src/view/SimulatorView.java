@@ -3,14 +3,18 @@ package view;
 
 import javax.swing.*;
 import model.*;
+import model.Model;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import run.*;
+
 import controller.*;
 
-public class SimulatorView extends JFrame {
+public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
-	private Controller controller;
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -24,7 +28,7 @@ public class SimulatorView extends JFrame {
     private JButton button4;
     private JButton button5;
     
-     
+    
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
@@ -40,23 +44,28 @@ public class SimulatorView extends JFrame {
 
             	button1 = new JButton("+1 Step");
                 button1.setPreferredSize(new Dimension(100, 100));
-                button1.addActionListener(e -> controller.step());
+                button1.addActionListener(this);
+                button1.setActionCommand("een");
                 buttons.add(button1);
                 button2 = new JButton("Start");
                 button2.setPreferredSize(new Dimension(100, 100));
-                button2.addActionListener(e -> controller.start());
+                button2.addActionListener(this);
+                button2.setActionCommand("ga");
                 buttons.add(button2);
                 button3 = new JButton("Pause");
                 button3.setPreferredSize(new Dimension(100, 100));
-                button3.addActionListener(e -> controller.pause());
+                button3.addActionListener(this);
+                button3.setActionCommand("pauze");
                 buttons.add(button3);
                 button4 = new JButton("Stop");
                 button4.setPreferredSize(new Dimension(100, 100));
-                button4.addActionListener(e -> controller.stop());
+                button4.addActionListener(this);
+                button4.setActionCommand("klaar");
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
                 button5.setPreferredSize(new Dimension(100, 100));
-                //button5.addActionListener(e -> stop());
+                button5.addActionListener(this);
+                button5.setActionCommand("honderd");
                 buttons.add(button5);
 
                 JPanel Pane1 = new JPanel();
@@ -167,13 +176,9 @@ public class SimulatorView extends JFrame {
         for (int floor = 0; floor < getNumberOfFloors(); floor++) {
             	for (int row = 0; row < getNumberOfRows(); row++) {
                 for (int place = 0; place < getNumberOfPlaces(); place++) {
-                    if(floor == 0 && row <=3){
                     Location location = new Location(floor, row, place);
                     if (getCarAt(location) == null) {
                         return location;
-                    }else{
-                    	
-                    }
                     }
                 }
             }
@@ -229,6 +234,39 @@ public class SimulatorView extends JFrame {
         }
         return true;
     }
-    
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		String action = ae.getActionCommand();
+		
+		if (action.equals("ga")) {
+			ProjectPeriode.go();
+		}
+		
+		if (action.equals("klaar")) {
+			stop();
+		}
+		
+		if (action.equals("een")) {
+			ProjectPeriode.step();
+		}
+		
+		if (action.equals("honderd")) {
+			ProjectPeriode.hstep();
+		}
+		
+		if (action.equals("pauze")) {
+			pause();
+		}
+		
+	}
+	
+	public void stop() {
+		System.out.println("Button pressed!");
+	}
+	
+	public void pause() {
+		System.out.println("Button pressed!");
+	}
     
 }

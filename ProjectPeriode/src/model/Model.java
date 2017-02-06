@@ -2,7 +2,6 @@ package model;
 
 
 import java.util.Random;
-import run.*;
 import view.SimulatorView;
 
 
@@ -13,7 +12,7 @@ public class Model implements Runnable {
 	private static final String PASS = "2";
 	private static final String ABO = "3";
 	
-	public boolean run=true;
+	public boolean run=false;
 	
 	private CarQueue entranceCarQueue;
     private CarQueue entrancePassQueue;
