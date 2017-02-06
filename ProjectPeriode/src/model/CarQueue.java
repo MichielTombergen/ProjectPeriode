@@ -3,6 +3,12 @@ package model;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * In de klasse CarQueue word een linkedlist gemaakt en hier worden 
+ * Car's aan toegevoegd. En eventueel weer uit gehaald.
+ * @author Michiel
+ *
+ */
 public class CarQueue {
     private Queue<Car> queue = new LinkedList<>();
 
