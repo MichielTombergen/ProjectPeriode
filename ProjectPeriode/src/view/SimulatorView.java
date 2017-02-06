@@ -3,11 +3,9 @@ package view;
 
 import javax.swing.*;
 import model.*;
-import model.Model;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import run.*;
 
 import controller.*;
 
@@ -15,6 +13,7 @@ public class SimulatorView extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	private Controller controller;
 	private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -64,12 +63,7 @@ public class SimulatorView extends JFrame implements ActionListener{
                 buttons.add(button4);
                 button5 = new JButton("+100 Steps");
                 button5.setPreferredSize(new Dimension(100, 100));
-<<<<<<< Upstream, based on branch 'master' of https://github.com/MichielTombergen/ProjectPeriode
-                //button5.addActionListener(e -> stop());
-=======
-                button5.addActionListener(this);
-                button5.setActionCommand("honderd");
->>>>>>> 8729808 knoppen werken moeten alleen nog goede functies krijgen!
+
                 buttons.add(button5);
 
                 JPanel Pane1 = new JPanel();
@@ -248,33 +242,45 @@ public class SimulatorView extends JFrame implements ActionListener{
 		String action = ae.getActionCommand();
 		
 		if (action.equals("ga")) {
-			ProjectPeriode.go();
-		}
-		
-		if (action.equals("klaar")) {
-			stop();
-		}
-		
-		if (action.equals("een")) {
-			ProjectPeriode.step();
-		}
-		
-		if (action.equals("honderd")) {
-			ProjectPeriode.hstep();
+			go();
 		}
 		
 		if (action.equals("pauze")) {
+			stop();
+		}
+		
+		if (action.equals("klaar")) {
+			step();
+		}
+		
+		if (action.equals("honderd")) {
+			hstep();
+		}
+		
+		if (action.equals("een")) {
 			pause();
 		}
 		
 	}
-	
-	public void stop() {
+    
+	public void go() {
 		System.out.println("Button pressed!");
 	}
 	
+	public void stop() {
+		boolean run = false;
+	}
+	
 	public void pause() {
-		System.out.println("Button pressed!");
+		boolean run = false;
+	}
+	
+	public void step() {
+		boolean run = false;
+	}
+	
+	public void hstep() {
+		boolean run = false;
 	}
     
 }
