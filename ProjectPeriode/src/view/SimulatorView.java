@@ -286,7 +286,7 @@ public class SimulatorView extends JFrame implements ActionListener{
 		}
 		
 		if (action.equals("klaar")) {
-			stop();
+			ProjectPeriode.stop();
 		}
 		
 		if (action.equals("een")) {
@@ -303,12 +303,6 @@ public class SimulatorView extends JFrame implements ActionListener{
 		
 	}
 	
-	/**
-	 * 
-	 */
-	public void stop() {
-		System.out.println("Button pressed!");
-	}
 	
 	/**
 	 * 
